@@ -1,0 +1,28 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = hw3.o
+LINKOBJ  = hw3.o
+LIBS     = -L"D:/OneDrive/Tools/DevCppPortable/MinGW64/lib" -L"D:/OneDrive/Tools/DevCppPortable/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/include" -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/x86_64-w64-mingw32/include" -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/include" -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/x86_64-w64-mingw32/include" -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/OneDrive/Tools/DevCppPortable/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = pointer.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+hw3.o: hw3.c
+	$(CC) -c hw3.c -o hw3.o $(CFLAGS)
